@@ -79,8 +79,9 @@ export interface NotebookDocumentMetadata {
 export enum NotebookCellRunState {
 	Running = 1,
 	Idle = 2,
-	Success = 3,
-	Error = 4
+	Pending = 3,
+	Success = 4,
+	Error = 5
 }
 
 export interface NotebookCellMetadata {
@@ -727,8 +728,7 @@ export interface INotebookKernel {
 	supportedLanguages?: string[]
 
 	resolve(uri: URI, editorId: string, token: CancellationToken): Promise<void>;
-	executeNotebookCell(uri: URI, handle: number | undefined): Promise<void>;
-	cancelNotebookCell(uri: URI, handle: number | undefined): Promise<void>;
+	executeNotebookCellsRequest(uri: URI, ranges: ICellRange[]): Promise<void>;
 }
 
 export interface INotebookKernelProvider {
