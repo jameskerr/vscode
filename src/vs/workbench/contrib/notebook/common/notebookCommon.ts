@@ -79,9 +79,7 @@ export interface NotebookDocumentMetadata {
 export enum NotebookCellRunState {
 	Running = 1,
 	Idle = 2,
-	Pending = 3,
-	Success = 4,
-	Error = 5
+	Pending = 3
 }
 
 export interface NotebookCellMetadata {
@@ -90,6 +88,7 @@ export interface NotebookCellMetadata {
 	hasExecutionOrder?: boolean;
 	executionOrder?: number;
 	statusMessage?: string;
+	lastRunSuccess?: boolean;
 	runState?: NotebookCellRunState;
 	runStartTime?: number;
 	lastRunDuration?: number;
