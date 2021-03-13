@@ -76,10 +76,10 @@ export interface NotebookDocumentMetadata {
 	trusted: boolean;
 }
 
-export enum NotebookCellRunState {
-	Running = 1,
-	Idle = 2,
-	Pending = 3
+export enum NotebookCellExecutionState {
+	Idle = 1,
+	Pending = 2,
+	Executing = 3,
 }
 
 export interface NotebookCellMetadata {
@@ -89,7 +89,7 @@ export interface NotebookCellMetadata {
 	executionOrder?: number;
 	statusMessage?: string;
 	lastRunSuccess?: boolean;
-	runState?: NotebookCellRunState;
+	runState?: NotebookCellExecutionState;
 	runStartTime?: number;
 	lastRunDuration?: number;
 	inputCollapsed?: boolean;
