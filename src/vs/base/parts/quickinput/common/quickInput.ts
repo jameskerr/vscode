@@ -64,6 +64,8 @@ export interface IPickOptions<T extends IQuickPickItem> {
 	 */
 	placeHolder?: string;
 
+	title?: string;
+
 	/**
 	 * an optional flag to include the description when filtering the picks
 	 */
@@ -120,6 +122,8 @@ export interface IInputOptions {
 	 * the value to prefill in the input box
 	 */
 	value?: string;
+
+	title?: string;
 
 	/**
 	 * the selection of value, default to the whole word

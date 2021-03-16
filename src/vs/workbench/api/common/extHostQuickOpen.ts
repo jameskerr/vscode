@@ -71,7 +71,8 @@ export function createExtHostQuickOpen(mainContext: IMainContext, workspace: IEx
 				matchOnDescription: options && options.matchOnDescription,
 				matchOnDetail: options && options.matchOnDetail,
 				ignoreFocusLost: options && options.ignoreFocusOut,
-				canPickMany: options && options.canPickMany
+				canPickMany: options && options.canPickMany,
+				title: options?.title,
 			}, token);
 
 			const widgetClosedMarker = {};
