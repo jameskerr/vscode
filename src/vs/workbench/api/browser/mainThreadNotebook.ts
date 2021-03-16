@@ -169,7 +169,7 @@ export class MainThreadNotebooks implements MainThreadNotebookShape {
 			throw new Error(`Can't apply edits to unknown notebook model: ${resource}`);
 		}
 
-		textModel.applyEdits(cellEdits, true, undefined, () => undefined, undefined);
+		textModel.applyEdits(cellEdits, true, undefined, () => undefined, undefined, false);
 	}
 
 	private _registerListeners(): void {

@@ -52,7 +52,7 @@ class NotebookEditorCellEditBuilder implements vscode.NotebookEditorEdit {
 	replaceCellMetadata(index: number, metadata: vscode.NotebookCellMetadata): void {
 		this._throwIfFinalized();
 		this._collectedEdits.push({
-			editType: CellEditType.Metadata,
+			editType: CellEditType.PartialMetadata,
 			index,
 			metadata
 		});
