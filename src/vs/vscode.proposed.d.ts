@@ -1096,6 +1096,7 @@ declare module 'vscode' {
 	}
 
 	export interface NotebookCellPreviousExecutionResult {
+		executionOrder?: number;
 		success?: boolean;
 		duration?: number;
 	}
@@ -1129,7 +1130,7 @@ declare module 'vscode' {
 		// run related API, will be removed
 		readonly hasExecutionOrder?: boolean;
 
-		constructor(editable?: boolean, breakpointMargin?: boolean, hasExecutionOrder?: boolean, executionOrder?: number, runStartTime?: number, statusMessage?: string, lastRunDuration?: number, inputCollapsed?: boolean, outputCollapsed?: boolean, custom?: Record<string, any>)
+		constructor(editable?: boolean, breakpointMargin?: boolean, hasExecutionOrder?: boolean, statusMessage?: string, lastRunDuration?: number, inputCollapsed?: boolean, outputCollapsed?: boolean, custom?: Record<string, any>)
 
 		with(change: { editable?: boolean | null, breakpointMargin?: boolean | null, hasExecutionOrder?: boolean | null, statusMessage?: string | null, lastRunDuration?: number | null, inputCollapsed?: boolean | null, outputCollapsed?: boolean | null, custom?: Record<string, any> | null, }): NotebookCellMetadata;
 	}
@@ -1142,7 +1143,7 @@ declare module 'vscode' {
 		readonly document: TextDocument;
 		readonly metadata: NotebookCellMetadata
 		readonly outputs: ReadonlyArray<NotebookCellOutput>;
-		readonly previousResult: NotebookCellPreviousExecutionResult;
+		readonly previousResult: NotebookCellPreviousExecutionResult | undefined;
 	}
 
 	export class NotebookDocumentMetadata {
@@ -1362,7 +1363,7 @@ declare module 'vscode' {
 		outputs?: NotebookCellOutput[];
 		metadata?: NotebookCellMetadata;
 		previousResult?: NotebookCellPreviousExecutionResult;
-		constructor(kind: NotebookCellKind, source: string, language: string, outputs?: NotebookCellOutput[], metadata?: NotebookCellMetadata)
+		constructor(kind: NotebookCellKind, source: string, language: string, outputs?: NotebookCellOutput[], metadata?: NotebookCellMetadata, previousResult?: NotebookCellPreviousExecutionResult);
 	}
 
 	export class NotebookData {
